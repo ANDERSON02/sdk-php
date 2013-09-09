@@ -1,0 +1,48 @@
+<?php
+require_once ('mercadopago.php');
+
+/* Obtenha as suas credenciais em:
+* Argentina: https://www.mercadopago.com/mla/herramientas/aplicaciones
+* Brasil: https://www.mercadopago.com/mlb/ferramentas/aplicacoes
+* México: https://www.mercadopago.com/mlm/herramientas/aplicaciones
+* Venezuela: https://www.mercadopago.com/mlv/herramientas/aplicaciones
+*/
+$mp = new MP('TU_CLIENT_ID', 'TU_CLIENT_SECRET');
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pagar</title>
+    </head>
+    <body>
+        <a href="link_de_pagamento">Pagar</a>
+    </body>
+</html>
+<?php
+require_once ('mercadopago.php');
+
+$mp = new MP('TU_CLIENT_ID', 'TU_CLIENT_SECRET');
+
+$preference_data = array(
+    "items" => array(
+       array(
+           "title" => "Pipa multicolorida",
+           "quantity" => 1,
+           "currency_id" => "ARS",
+           "unit_price" => 10.00
+       )
+    )
+);
+
+$preference = $mp->create_preference ($preference_data);
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pagar</title>
+    </head>
+    <body>
+        <a href="link_de_pagamento">Pagar</a>
+    </body>
+</html>
